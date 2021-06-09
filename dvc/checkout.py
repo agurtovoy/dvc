@@ -112,7 +112,7 @@ def _try_links(cache, from_info, to_info, link_types):
 
         except DvcException as exc:
             logger.debug(
-                "Cache type '%s' is not supported: %s", link_types[0], exc
+                "Cache type '%s' is not supported: %s\nUnderlying error: %s", link_types[0], exc, exc.__cause__
             )
             del link_types[0]
 
